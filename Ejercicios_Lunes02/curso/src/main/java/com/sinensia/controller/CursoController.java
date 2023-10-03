@@ -1,6 +1,7 @@
 package com.sinensia.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,7 @@ import com.sinensia.service.CursoService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cursos")
+// @RequestMapping("/curso")
 public class CursoController {
 
     @Autowired
@@ -20,7 +21,7 @@ public class CursoController {
     /** 
      * @return List<Curso>
      */
-    @GetMapping
+    @GetMapping(value="curso", produces=MediaType.APPLICATION_JSON_VALUE)
     public List<Curso> getAllCursos() {
         return cursoService.getAllCursos();
     }
@@ -30,7 +31,7 @@ public class CursoController {
      * @param codCurso
      * @return ResponseEntity<Curso>
      */
-    @GetMapping("curso/{codCurso}")
+    @GetMapping(value="curso/{codCurso}", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Curso> getCursoByCodCurso(@PathVariable String codCurso) {
         Curso curso = cursoService.getCursoByCodCurso(codCurso);
         if (curso != null) {
