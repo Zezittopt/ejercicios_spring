@@ -1,8 +1,8 @@
-package com.sinensia.service;
+package com.sinensia.curso.service;
 
 import java.util.List;
 
-import com.sinensia.model.Curso;
+import com.sinensia.curso.model.Curso;
 
 public interface CursoService {
     
